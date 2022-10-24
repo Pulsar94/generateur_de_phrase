@@ -24,10 +24,28 @@ char** readLine(char** line, int num){
 
 int GetArgFromLine(int num, char** wordM,char** word,char** def){
     char* line[50];
+    int state = 0, pos;
     readLine(line,num);
 
     for(int i=0;line[i];i++){
+        if(*line[i] == ' '){
+            state++;
+            pos = i;
+        }else {
+            switch (1)
+            {
+                case (0):
+                    *wordM[i] = *line[i];
+                    break;
+                case (1):
+                    *word[i-pos] = *line[i];
+                    break;
+                case (2):
+                    *def[i-pos] = *line[i];
+                    break;
 
+            }
+        }
     }
 
     return 1;

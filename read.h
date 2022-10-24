@@ -13,6 +13,8 @@
 
 char** readLine(char**, int);
 
+int GetArgFromLine(int, char**,char**,char**);
+
 char* getWord(char*);
 
 char* getType(char*);

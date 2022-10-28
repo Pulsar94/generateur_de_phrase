@@ -14,20 +14,20 @@
 #define DEFAULT_STR_LEN 50
 
 struct string{
-    char* values;
+    char values[50];
     int num;
 };
 
 typedef struct string *p_string;
 
 struct dictionary{
-    char* word;
+    char word[50];
     int num1;
 
-    char* word2;
+    char word2[50];
     int num2;
 
-    char* type;
+    char type[50];
     int num3;
 };
 

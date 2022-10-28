@@ -1,2 +1,3 @@
-zadadzadaz d
-d zad zadz
+abaissais	abaisser	Ver:IImp+SG+P1:IImp+SG+P2
+abaissait	abaisser	Ver:IImp+SG+P3
+abaissames	abaisser	Ver:IPSim+PL+P1

@@ -6,13 +6,13 @@
 
 // p_string struct management
 p_string InitString(int num){
-    p_string new = (p_string) malloc(sizeof(p_string)*num);
+    p_string new = (p_string) malloc(sizeof(p_string));
     return new;
 }
 
 void ChangeStringValue(p_string str, char* str_add){
-    str->values = str_add;
-    str->num = strlen(str_add);
+    strcpy(str->values,str_add);
+    str->num =(int) strlen(str_add);
 }
 
 void ShowString(p_string str){
@@ -25,23 +25,23 @@ void ShowString(p_string str){
 //p_dic struct management
 
 p_dic InitDic(int num){
-    p_dic new = (p_dic) malloc(sizeof(p_dic)*num);
+    p_dic new = (p_dic) malloc(sizeof(p_dic));
     return new;
 }
 
 void ChangeDicValue(p_dic str, char* str_add, int cat){
     switch (cat){
         case 0:
-            str->word = str_add;
-            str->num1 = strlen(str_add);
+            strcpy(str->word,str_add);
+            str->num1 =(int) strlen(str_add);
             break;
         case 1:
-            str->word = str_add;
-            str->num2 = strlen(str_add);
+            strcpy(str->word2,str_add);
+            str->num2 =(int) strlen(str_add);
             break;
         case 2:
-            str->type = str_add;
-            str->num3 = strlen(str_add);
+            strcpy(str->type,str_add);
+            str->num3 =(int) strlen(str_add);
             break;
         default:
             break;
@@ -49,15 +49,16 @@ void ChangeDicValue(p_dic str, char* str_add, int cat){
 }
 
 void ShowDic(p_dic str){
-    for(int i =0;i<(str->num1);i++){
+    printf("word: ");
+    for(int i =0;str->word[i] != '\0';i++){
         printf("%c",str->word[i]);
     }
-    printf("\n");
-    for(int i =0;i<(str->num2);i++){
+    printf("\nword2: ");
+    for(int i =0;str->word2[i] != '\0';i++){
         printf("%c",str->word2[i]);
     }
-    printf("\n");
-    for(int i =0;i<(str->num3);i++){
+    printf("\ntype: ");
+    for(int i =0;str->type[i] != '\0';i++){
         printf("%c",str->type[i]);
     }
     printf("\n");
@@ -65,12 +66,14 @@ void ShowDic(p_dic str){
 
 //File management
 p_string readLine(int num){
+    char file_read[50];
     p_string new = InitString(50);
     FILE* file = fopen(TEXT,"r");
     int count = 0;
 
-    while(fgets(new->values, 255, file)) {
-        printf("%s\n", new->values);
+    while(fgets(file_read, 255, file)) {
+        //printf("%s\n", file_read);
+        strcpy(new->values,file_read);
         if (count++ == num) {
             fclose(file);
             return new;
@@ -78,7 +81,6 @@ p_string readLine(int num){
     }
 
     fclose(file);
-    printf("yzvduyzq?\n");
     return new;
 }
 
@@ -89,35 +91,37 @@ p_dic GetArgFromLine(int line){
     printf("do\n");
     p_string str = readLine(line);
     ShowString(str);
+    printf("%d\n",str->num);
 
-    for(int i=0; i < str->num;i++){
-        //printf("%d\n",str->values[i] != NULL);
+    for(int i=0; str->values[i] != '\0';i++){
         printf("i = %d | char = %c\n",i,str->values[i]);
-        if(str->values[i] == ' '){
+        if(str->values[i] == '\n'){ // ulgy might make it better later
+            break;
+        }
+        if(str->values[i] == '\t'){
             printf("state\n");
             state++;
-            pos = i;
+            pos = i+1;
         }else {
             switch (state)
             {
                 case 0:
                     new->word[i] = str->values[i];
-                    printf("%c",str->values[i]);
+                    //printf("%c",str->values[i]);
                     break;
                 case 1:
-                    new->word2[i] = str->values[i];
-                    printf("%c",str->values[i]);
+                    new->word2[i-pos] = str->values[i];
+                    //printf("%c",str->values[i]);
                     break;
                 case 2:
-                    new->type[i] = str->values[i];
-                    printf("%c",str->values[i]);
+                    new->type[i-pos] = str->values[i];
+                    //printf("%c",str->values[i]);
                     break;
                 default:
                     break;
             }
         }
     }
-    printf("plp\n");
 
     return new;
 }

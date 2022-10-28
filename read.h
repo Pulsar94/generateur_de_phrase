@@ -10,14 +10,41 @@
 #define PROJET_READ_H
 
 #define TEXT "test.txt"
-#define MAX_LENGTH 290000
+#define MAX_LENGTH 2555
+#define DEFAULT_STR_LEN 50
 
-int readLine(char**, int);
+struct string{
+    char* values;
+    int num;
+};
 
-int GetArgFromLine(int, char**,char**,char**);
+typedef struct string *p_string;
 
-char* getWord(char*);
+struct dictionary{
+    char* word;
+    int num1;
 
-char* getType(char*);
+    char* word2;
+    int num2;
+
+    char* type;
+    int num3;
+};
+
+typedef struct dictionary *p_dic;
+
+//p_str struct management
+p_string InitString(int);
+void ChangeStringValue(p_string, char*);
+void ShowString(p_string);
+
+//p_dic struct management
+p_dic InitDic(int);
+void ChangeDicValue(p_dic, char*, int);
+void ShowDic(p_dic);
+
+//file struct management
+p_string readLine(int);
+p_dic GetArgFromLine(int);
 
 #endif //PROJET_READ_H

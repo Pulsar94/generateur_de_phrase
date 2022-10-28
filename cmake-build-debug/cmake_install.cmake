@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/taoso/OneDrive/Desktop/Code&TP/SM3/Algo/Projet
+# Install script for directory: C:/Users/taoso/Desktop/projet C
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/taoso/OneDrive/Desktop/Code&TP/SM3/Algo/Projet/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/taoso/Desktop/projet C/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

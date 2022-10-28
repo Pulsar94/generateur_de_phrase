@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #ifndef PROJET_READ_H
 #define PROJET_READ_H
@@ -11,7 +12,7 @@
 #define TEXT "test.txt"
 #define MAX_LENGTH 290000
 
-char** readLine(char**, int);
+int readLine(char**, int);
 
 int GetArgFromLine(int, char**,char**,char**);
 

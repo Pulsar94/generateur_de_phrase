@@ -14,7 +14,7 @@
 #define DEFAULT_STR_LEN 50
 
 struct string{
-    char values[50];
+    char values[100];
     int num;
 };
 
@@ -44,6 +44,7 @@ void ChangeDicValue(p_dic, char*, int);
 void ShowDic(p_dic);
 
 //file struct management
+p_dic InsertIntoDic(p_dic, p_string);
 p_string readLine(int);
 p_dic GetArgFromLine(int);
 

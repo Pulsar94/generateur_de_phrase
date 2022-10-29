@@ -1,3 +1,5 @@
 abaissais	abaisser	Ver:IImp+SG+P1:IImp+SG+P2
 abaissait	abaisser	Ver:IImp+SG+P3
 abaissames	abaisser	Ver:IPSim+PL+P1
+Ver:IPSim+PL+P1 Ver:IPSim+PL+P1 Ver:IPSim+PL+P1
+abaissames abaissames abaissames

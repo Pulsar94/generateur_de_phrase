@@ -6,7 +6,7 @@
 
 // p_string struct management
 p_string InitString(int num){
-    p_string new = (p_string) malloc(sizeof(p_string));
+    p_string new = (p_string) malloc(sizeof(p_string)*2);
     return new;
 }
 
@@ -16,16 +16,18 @@ void ChangeStringValue(p_string str, char* str_add){
 }
 
 void ShowString(p_string str){
-    for(int i =0;i<(str->num);i++){
+    for(int i =0;str->values[i] != '\0';i++){
+        //printf("i = %d | char = %c\n",i,str->values[i]);
         printf("%c",str->values[i]);
     }
     printf("\n");
 }
 
-//p_dic struct management
 
+
+//p_dic struct management
 p_dic InitDic(int num){
-    p_dic new = (p_dic) malloc(sizeof(p_dic));
+    p_dic new = (p_dic) malloc(sizeof(p_dic)*2);
     return new;
 }
 
@@ -49,20 +51,24 @@ void ChangeDicValue(p_dic str, char* str_add, int cat){
 }
 
 void ShowDic(p_dic str){
+    printf("%d | %d | %d |\n",str->num1,str->num2,str->num3);
     printf("word: ");
-    for(int i =0;str->word[i] != '\0';i++){
+    for(int i =0; i < str->num1;i++){
         printf("%c",str->word[i]);
     }
     printf("\nword2: ");
-    for(int i =0;str->word2[i] != '\0';i++){
+    for(int i =0; i < str->num2;i++){
         printf("%c",str->word2[i]);
     }
     printf("\ntype: ");
-    for(int i =0;str->type[i] != '\0';i++){
+    for(int i =0; i < str->num3;i++){
         printf("%c",str->type[i]);
     }
     printf("\n");
 }
+
+
+
 
 //File management
 p_string readLine(int num){
@@ -84,44 +90,54 @@ p_string readLine(int num){
     return new;
 }
 
+p_dic InsertIntoDic(p_dic dic, p_string str){
+    int state = 0, pos = 0;
+
+    for(int i =0;str->values[i] != '\0';i++){
+        printf("i = %d | char = %c\n",i,str->values[i]);
+//        if(str->values[i] == '\n'){ // ulgy might make it better later
+//            break;
+//        }
+//        if(str->values[i] == '\t' || str->values[i] == ' '){
+//            printf("state\n");
+//            state++;
+//            pos = i+1;
+//        }else {
+//            switch (state)
+//            {
+//                case 0:
+//                    dic->word[i-pos] = str->values[i];
+//                    dic->num1++;
+//                    break;
+//                case 1:
+//                    dic->word2[i-pos] = str->values[i];
+//                    dic->num2++;
+//                    break;
+//                case 2:
+//                    dic->type[i-pos] = str->values[i];
+//                    dic->num3++;
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
+    }
+    //ShowString(str);
+    return dic;
+}
+
 p_dic GetArgFromLine(int line){
     p_dic new = InitDic(2);
-    int state = 0, pos = 0;
 
     printf("do\n");
     p_string str = readLine(line);
     ShowString(str);
-    printf("%d\n",str->num);
+    new->num1 = 0; new->num2 = 0; new->num3 = 0;
+    ShowString(str);
+    printf("%d | %d | %d |\n",new->num1,new->num2,new->num3);
+    ShowString(str);
 
-    for(int i=0; str->values[i] != '\0';i++){
-        printf("i = %d | char = %c\n",i,str->values[i]);
-        if(str->values[i] == '\n'){ // ulgy might make it better later
-            break;
-        }
-        if(str->values[i] == '\t'){
-            printf("state\n");
-            state++;
-            pos = i+1;
-        }else {
-            switch (state)
-            {
-                case 0:
-                    new->word[i] = str->values[i];
-                    //printf("%c",str->values[i]);
-                    break;
-                case 1:
-                    new->word2[i-pos] = str->values[i];
-                    //printf("%c",str->values[i]);
-                    break;
-                case 2:
-                    new->type[i-pos] = str->values[i];
-                    //printf("%c",str->values[i]);
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
+    InsertIntoDic(new, str);
 
     return new;
 }

@@ -6,7 +6,7 @@
 
 // p_string struct management
 p_string InitString(int num){
-    p_string new = (p_string) malloc(sizeof(p_string)*2);
+    p_string new = (p_string) malloc(sizeof(t_string));
     return new;
 }
 
@@ -27,7 +27,7 @@ void ShowString(p_string str){
 
 //p_dic struct management
 p_dic InitDic(int num){
-    p_dic new = (p_dic) malloc(sizeof(p_dic)*2);
+    p_dic new = (p_dic) malloc(sizeof(t_dic));
     return new;
 }
 
@@ -95,32 +95,32 @@ p_dic InsertIntoDic(p_dic dic, p_string str){
 
     for(int i =0;str->values[i] != '\0';i++){
         printf("i = %d | char = %c\n",i,str->values[i]);
-//        if(str->values[i] == '\n'){ // ulgy might make it better later
-//            break;
-//        }
-//        if(str->values[i] == '\t' || str->values[i] == ' '){
-//            printf("state\n");
-//            state++;
-//            pos = i+1;
-//        }else {
-//            switch (state)
-//            {
-//                case 0:
-//                    dic->word[i-pos] = str->values[i];
-//                    dic->num1++;
-//                    break;
-//                case 1:
-//                    dic->word2[i-pos] = str->values[i];
-//                    dic->num2++;
-//                    break;
-//                case 2:
-//                    dic->type[i-pos] = str->values[i];
-//                    dic->num3++;
-//                    break;
-//                default:
-//                    break;
-//            }
-//        }
+        if(str->values[i] == '\n'){ // ulgy might make it better later
+            break;
+        }
+        if(str->values[i] == '\t' || str->values[i] == ' '){
+            printf("state\n");
+            state++;
+            pos = i+1;
+        }else {
+            switch (state)
+            {
+                case 0:
+                    dic->word[i-pos] = str->values[i];
+                    dic->num1++;
+                    break;
+                case 1:
+                    dic->word2[i-pos] = str->values[i];
+                    dic->num2++;
+                    break;
+                case 2:
+                    dic->type[i-pos] = str->values[i];
+                    dic->num3++;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
     //ShowString(str);
     return dic;
@@ -131,9 +131,9 @@ p_dic GetArgFromLine(int line){
 
     printf("do\n");
     p_string str = readLine(line);
+    printf("%d | %d | %d |\n",new->num1,new->num2,new->num3);
     ShowString(str);
     new->num1 = 0; new->num2 = 0; new->num3 = 0;
-    ShowString(str);
     printf("%d | %d | %d |\n",new->num1,new->num2,new->num3);
     ShowString(str);
 

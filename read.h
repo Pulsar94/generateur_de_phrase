@@ -18,7 +18,7 @@ struct string{
     int num;
 };
 
-typedef struct string *p_string;
+typedef struct string *p_string,t_string;
 
 struct dictionary{
     char word[50];
@@ -31,7 +31,7 @@ struct dictionary{
     int num3;
 };
 
-typedef struct dictionary *p_dic;
+typedef struct dictionary *p_dic,t_dic;
 
 //p_str struct management
 p_string InitString(int);

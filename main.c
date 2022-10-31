@@ -4,7 +4,7 @@
 int main() {
 
     p_dic new = GetArgFromLine(0);
-    //ShowDic(new);
+    ShowDic(new);
 
     printf("done\n");
     return 0;

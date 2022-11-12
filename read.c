@@ -10,11 +10,13 @@ p_string InitString(int num){
     return new;
 }
 
+//DEBUG: Change a value in a string
 void ChangeStringValue(p_string str, char* str_add){
     strcpy(str->values,str_add);
     str->num =(int) strlen(str_add);
 }
 
+//DEBUG: Show a string
 void ShowString(p_string str){
     for(int i =0;str->values[i] != '\0';i++){
         //printf("i = %d | char = %c\n",i,str->values[i]);
@@ -31,6 +33,7 @@ p_dic InitDic(){
     return new;
 }
 
+//DEBUG: Change values in a p_dic
 void ChangeDicValue(p_dic str, char* str_add, int cat){
     switch (cat){
         case 0:
@@ -50,6 +53,7 @@ void ChangeDicValue(p_dic str, char* str_add, int cat){
     }
 }
 
+//DEBUG: Show a p_dic struct
 void ShowDic(p_dic str){
     printf("%d | %d | %d |\n",str->num1,str->num2,str->num3);
     printf("word: ");
@@ -71,22 +75,14 @@ void ShowDic(p_dic str){
 
 
 //File management
-p_string readLine(int num){
+p_string readLine(FILE* file){
     char file_read[100];
     p_string new = InitString(50);
-    FILE* file = fopen(TEXT,"r");
-    int count = 0;
 
     while(fgets(file_read, 255, file)) {
-        //printf("%s\n", file_read);
         strcpy(new->values,file_read);
-        if (count++ == num) {
-            fclose(file);
-            return new;
-        }
+        return new;
     }
-
-    fclose(file);
     return new;
 }
 
@@ -94,12 +90,10 @@ p_dic InsertIntoDic(p_dic dic, p_string str){
     int state = 0, pos = 0;
 
     for(int i =0;str->values[i] != '\0';i++){
-        //printf("i = %d | char = %c\n",i,str->values[i]);
-        if(str->values[i] == '\n'){ // ulgy might make it better later
+        if(str->values[i] == '\n'){
             break;
         }
         if(str->values[i] == '\t' || str->values[i] == ' '){
-            //printf("state\n");
             state++;
             pos = i+1;
         }else {
@@ -122,17 +116,14 @@ p_dic InsertIntoDic(p_dic dic, p_string str){
             }
         }
     }
-    //ShowString(str);
     return dic;
 }
 
 //Separate line argument into the p_dic struct
-p_dic GetArgFromLine(int line){
+p_dic GetArgFromLine(int line, FILE* file){
     p_dic new = InitDic();
-    p_string str = readLine(line);
+    p_string str = readLine(file);
     new->num1 = 0; new->num2 = 0; new->num3 = 0;
-    //printf("%d | %d | %d |\n",new->num1,new->num2,new->num3);
-    //ShowString(str);
 
     InsertIntoDic(new, str);
 
@@ -144,7 +135,6 @@ int GetType(p_dic dic){
     char type[9] = "NomAdjVer";
     int count = 0,success = 0;
     for(int i=0;i<9&&count==0;i++){
-        //printf("compare: %d|succ: %d|char: %c\n",i,success,dic->type[i%3]);
         if(dic->type[i%3]==type[i]){
             success++;
         }else{

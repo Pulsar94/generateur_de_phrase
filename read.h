@@ -47,5 +47,6 @@ void ShowDic(p_dic);
 p_dic InsertIntoDic(p_dic, p_string);
 p_string readLine(int);
 p_dic GetArgFromLine(int);
+int GetType(p_dic);
 
 #endif //PROJET_READ_H

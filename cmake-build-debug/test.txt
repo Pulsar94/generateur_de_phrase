@@ -1,5 +1,3 @@
-abaissais	abaisser	Ver:IImp+SG+P1:IImp+SG+P2
-abaissait	abaisser	Ver:IImp+SG+P3
-abaissames	abaisser	Ver:IPSim+PL+P1
-Ver:IPSim+PL+P1 Ver:IPSim+PL+P1 Ver:IPSim+PL+P1
-abaissames abaissames abaissames
+abacule	abacule	Nom:Mas+SG
+abaissa	abaisser	Ver:IPSim+SG+P3
+abaissable	abaissable	Adj:InvGen+SG

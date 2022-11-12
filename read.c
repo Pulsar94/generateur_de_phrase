@@ -126,18 +126,42 @@ p_dic InsertIntoDic(p_dic dic, p_string str){
     return dic;
 }
 
+//Separate line argument into the p_dic struct
 p_dic GetArgFromLine(int line){
     p_dic new = InitDic(2);
 
-    printf("do\n");
     p_string str = readLine(line);
-    printf("%d | %d | %d |\n",new->num1,new->num2,new->num3);
-    ShowString(str);
     new->num1 = 0; new->num2 = 0; new->num3 = 0;
-    printf("%d | %d | %d |\n",new->num1,new->num2,new->num3);
-    ShowString(str);
+    //printf("%d | %d | %d |\n",new->num1,new->num2,new->num3);
+    //ShowString(str);
 
     InsertIntoDic(new, str);
 
     return new;
+}
+
+//Get int type of the word stored in a p_dic
+int GetType(p_dic dic){
+    char type[9] = "NomAdjVer";
+    int count = 0,success = 0;
+    for(int i=0;i<9&&count==0;i++){
+        //printf("compare: %d|succ: %d|char: %c\n",i,success,dic->type[i%3]);
+        if(dic->type[i%3]==type[i]){
+            success++;
+        }else{
+            success=0;
+        }
+        if(success == 3){
+            if(i>0){
+                count = 1;
+            }
+            if(i>3){
+                count = 2;
+            }
+            if(i>6){
+                count = 3;
+            }
+        }
+    }
+    return count;
 }

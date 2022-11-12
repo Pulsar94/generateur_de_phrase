@@ -85,6 +85,12 @@
 		<Unit filename="C:/Users/taoso/Desktop/projet C/read.h">
 			<Option target="Projet"/>
 		</Unit>
+		<Unit filename="C:/Users/taoso/Desktop/projet C/tree.c">
+			<Option target="Projet"/>
+		</Unit>
+		<Unit filename="C:/Users/taoso/Desktop/projet C/tree.h">
+			<Option target="Projet"/>
+		</Unit>
 		<Unit filename="C:/Users/taoso/Desktop/projet C/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

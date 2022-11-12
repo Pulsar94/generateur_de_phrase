@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/taoso/Desktop/projet C/main.c" "CMakeFiles/Projet.dir/main.c.obj" "gcc" "CMakeFiles/Projet.dir/main.c.obj.d"
   "C:/Users/taoso/Desktop/projet C/read.c" "CMakeFiles/Projet.dir/read.c.obj" "gcc" "CMakeFiles/Projet.dir/read.c.obj.d"
+  "C:/Users/taoso/Desktop/projet C/tree.c" "CMakeFiles/Projet.dir/tree.c.obj" "gcc" "CMakeFiles/Projet.dir/tree.c.obj.d"
   )
 
 # Targets to which this target links.

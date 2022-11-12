@@ -3,4 +3,4 @@ project(Projet C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Projet main.c read.c read.h)
+add_executable(Projet main.c read.c read.h tree.c tree.h)

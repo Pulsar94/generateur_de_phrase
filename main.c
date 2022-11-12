@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "read.h"
+#include "tree.h"
 
 int main() {
 

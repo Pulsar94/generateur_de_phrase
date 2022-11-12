@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Projet.dir/main.c.obj.d"
   "CMakeFiles/Projet.dir/read.c.obj"
   "CMakeFiles/Projet.dir/read.c.obj.d"
+  "CMakeFiles/Projet.dir/tree.c.obj"
+  "CMakeFiles/Projet.dir/tree.c.obj.d"
   "Projet.exe"
   "Projet.exe.manifest"
   "Projet.pdb"

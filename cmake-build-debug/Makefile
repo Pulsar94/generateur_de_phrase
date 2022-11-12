@@ -128,6 +128,30 @@ Projet/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projet.dir\build.make CMakeFiles/Projet.dir/build
 .PHONY : Projet/fast
 
+generator.obj: generator.c.obj
+.PHONY : generator.obj
+
+# target to build an object file
+generator.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projet.dir\build.make CMakeFiles/Projet.dir/generator.c.obj
+.PHONY : generator.c.obj
+
+generator.i: generator.c.i
+.PHONY : generator.i
+
+# target to preprocess a source file
+generator.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projet.dir\build.make CMakeFiles/Projet.dir/generator.c.i
+.PHONY : generator.c.i
+
+generator.s: generator.c.s
+.PHONY : generator.s
+
+# target to generate assembly for a file
+generator.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projet.dir\build.make CMakeFiles/Projet.dir/generator.c.s
+.PHONY : generator.c.s
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -209,6 +233,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Projet
+	@echo ... generator.obj
+	@echo ... generator.i
+	@echo ... generator.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

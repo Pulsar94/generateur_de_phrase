@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Projet.dir/generator.c.obj"
+  "CMakeFiles/Projet.dir/generator.c.obj.d"
   "CMakeFiles/Projet.dir/main.c.obj"
   "CMakeFiles/Projet.dir/main.c.obj.d"
   "CMakeFiles/Projet.dir/read.c.obj"

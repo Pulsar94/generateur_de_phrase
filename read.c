@@ -26,7 +26,7 @@ void ShowString(p_string str){
 
 
 //p_dic struct management
-p_dic InitDic(int num){
+p_dic InitDic(){
     p_dic new = (p_dic) malloc(sizeof(t_dic));
     return new;
 }
@@ -72,7 +72,7 @@ void ShowDic(p_dic str){
 
 //File management
 p_string readLine(int num){
-    char file_read[50];
+    char file_read[100];
     p_string new = InitString(50);
     FILE* file = fopen(TEXT,"r");
     int count = 0;
@@ -94,12 +94,12 @@ p_dic InsertIntoDic(p_dic dic, p_string str){
     int state = 0, pos = 0;
 
     for(int i =0;str->values[i] != '\0';i++){
-        printf("i = %d | char = %c\n",i,str->values[i]);
+        //printf("i = %d | char = %c\n",i,str->values[i]);
         if(str->values[i] == '\n'){ // ulgy might make it better later
             break;
         }
         if(str->values[i] == '\t' || str->values[i] == ' '){
-            printf("state\n");
+            //printf("state\n");
             state++;
             pos = i+1;
         }else {
@@ -128,8 +128,7 @@ p_dic InsertIntoDic(p_dic dic, p_string str){
 
 //Separate line argument into the p_dic struct
 p_dic GetArgFromLine(int line){
-    p_dic new = InitDic(2);
-
+    p_dic new = InitDic();
     p_string str = readLine(line);
     new->num1 = 0; new->num2 = 0; new->num3 = 0;
     //printf("%d | %d | %d |\n",new->num1,new->num2,new->num3);

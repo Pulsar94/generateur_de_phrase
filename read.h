@@ -9,7 +9,7 @@
 #ifndef PROJET_READ_H
 #define PROJET_READ_H
 
-#define TEXT "test.txt"
+#define TEXT "dictionnaire_projet_C.txt"
 #define MAX_LENGTH 2555
 #define DEFAULT_STR_LEN 50
 
@@ -21,13 +21,13 @@ struct string{
 typedef struct string *p_string,t_string;
 
 struct dictionary{
-    char word[50];
+    char word[100];
     int num1;
 
-    char word2[50];
+    char word2[100];
     int num2;
 
-    char type[50];
+    char type[100];
     int num3;
 };
 
@@ -39,7 +39,7 @@ void ChangeStringValue(p_string, char*);
 void ShowString(p_string);
 
 //p_dic struct management
-p_dic InitDic(int);
+p_dic InitDic();
 void ChangeDicValue(p_dic, char*, int);
 void ShowDic(p_dic);
 

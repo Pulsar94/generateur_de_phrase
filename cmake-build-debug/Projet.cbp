@@ -76,6 +76,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/taoso/Desktop/projet C/generator.c">
+			<Option target="Projet"/>
+		</Unit>
+		<Unit filename="C:/Users/taoso/Desktop/projet C/generator.h">
+			<Option target="Projet"/>
+		</Unit>
 		<Unit filename="C:/Users/taoso/Desktop/projet C/main.c">
 			<Option target="Projet"/>
 		</Unit>

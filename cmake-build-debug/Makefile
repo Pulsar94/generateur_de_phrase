@@ -224,6 +224,30 @@ tree.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projet.dir\build.make CMakeFiles/Projet.dir/tree.c.s
 .PHONY : tree.c.s
 
+tree_research.obj: tree_research.c.obj
+.PHONY : tree_research.obj
+
+# target to build an object file
+tree_research.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projet.dir\build.make CMakeFiles/Projet.dir/tree_research.c.obj
+.PHONY : tree_research.c.obj
+
+tree_research.i: tree_research.c.i
+.PHONY : tree_research.i
+
+# target to preprocess a source file
+tree_research.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projet.dir\build.make CMakeFiles/Projet.dir/tree_research.c.i
+.PHONY : tree_research.c.i
+
+tree_research.s: tree_research.c.s
+.PHONY : tree_research.s
+
+# target to generate assembly for a file
+tree_research.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Projet.dir\build.make CMakeFiles/Projet.dir/tree_research.c.s
+.PHONY : tree_research.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -245,6 +269,9 @@ help:
 	@echo ... tree.obj
 	@echo ... tree.i
 	@echo ... tree.s
+	@echo ... tree_research.obj
+	@echo ... tree_research.i
+	@echo ... tree_research.s
 .PHONY : help
 
 

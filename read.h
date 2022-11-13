@@ -10,27 +10,26 @@
 #define PROJET_READ_H
 
 #define TEXT "dictionnaire_projet_C.txt"
-#define MAX_LENGTH 2555
-#define DEFAULT_STR_LEN 50
+#define TEXT_LENGTH 287976
 
+//String struct
 struct string{
     char values[100];
     int num;
 };
-
 typedef struct string *p_string,t_string;
 
+//Dictionary struct
 struct dictionary{
-    char word[100];
+    char word[100]; //ex: escroquerait
     int num1;
 
-    char word2[100];
+    char word2[100]; //ex: escroquer
     int num2;
 
-    char type[100];
+    char type[100]; //ex: Ver:CPre+SG+P3
     int num3;
 };
-
 typedef struct dictionary *p_dic,t_dic;
 
 //p_str struct management

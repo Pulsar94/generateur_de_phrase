@@ -19,7 +19,6 @@ void ChangeStringValue(p_string str, char* str_add){
 //DEBUG: Show a string
 void ShowString(p_string str){
     for(int i =0;str->values[i] != '\0';i++){
-        //printf("i = %d | char = %c\n",i,str->values[i]);
         printf("%c",str->values[i]);
     }
     printf("\n");
@@ -27,13 +26,13 @@ void ShowString(p_string str){
 
 
 
-//p_dic struct management
+//p_dic struct management, Initialize the right size for our p_dic struct
 p_dic InitDic(){
     p_dic new = (p_dic) malloc(sizeof(t_dic));
     return new;
 }
 
-//DEBUG: Change values in a p_dic
+//DEBUG: Arbitrary change values in a p_dic
 void ChangeDicValue(p_dic str, char* str_add, int cat){
     switch (cat){
         case 0:
@@ -74,7 +73,7 @@ void ShowDic(p_dic str){
 
 
 
-//File management
+//File management, extract one line from the dictionary file
 p_string readLine(FILE* file){
     char file_read[100];
     p_string new = InitString(50);
@@ -86,6 +85,7 @@ p_string readLine(FILE* file){
     return new;
 }
 
+//'Explode' a string into p_dic specified string
 p_dic InsertIntoDic(p_dic dic, p_string str){
     int state = 0, pos = 0;
 
@@ -93,7 +93,7 @@ p_dic InsertIntoDic(p_dic dic, p_string str){
         if(str->values[i] == '\n'){
             break;
         }
-        if(str->values[i] == '\t' || str->values[i] == ' '){
+        if(str->values[i] == '\t' || str->values[i] == ' '){ //Each time we hit a tabulation or space this is a new word
             state++;
             pos = i+1;
         }else {
@@ -119,22 +119,25 @@ p_dic InsertIntoDic(p_dic dic, p_string str){
     return dic;
 }
 
-//Separate line argument into the p_dic struct
+//Collect a line from a text file to insert it into our p_dic struct
 p_dic GetArgFromLine(int line, FILE* file){
     p_dic new = InitDic();
     p_string str = readLine(file);
-    new->num1 = 0; new->num2 = 0; new->num3 = 0;
+    new->num1 = 0; new->num2 = 0; new->num3 = 0; //For some reason doing it inside the InitDic() does not work, set the length of our three string at 0
 
     InsertIntoDic(new, str);
 
     return new;
 }
 
-//Get int type of the word stored in a p_dic
+//Get type(in int) of the word stored in a p_dic
+//Type 1: Name
+//Type 2: Adjective
+//Type 3: Verb
 int GetType(p_dic dic){
     char type[9] = "NomAdjVer";
     int count = 0,success = 0;
-    for(int i=0;i<9&&count==0;i++){
+    for(int i=0;i<9&&count==0;i++){ //No need to pursue operation if a match (count) is already found
         if(dic->type[i%3]==type[i]){
             success++;
         }else{

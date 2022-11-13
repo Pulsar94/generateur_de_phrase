@@ -16,13 +16,11 @@ struct pn{ // noeud
     char value;
     int type;
 };
-
 typedef struct pn s_pn, *pnode;
 
 struct tr{ // arbre
     pnode root;
 };
-
 typedef struct tr s_tr, *tree;
 
 /* Fonctions */

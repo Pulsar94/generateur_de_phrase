@@ -5,7 +5,7 @@
 pnode create_node(){
     pnode pn=malloc(sizeof(s_pn));
     pn->left=NULL; pn->right=NULL;
-    pn->value=NULL;
+    pn->value='\0';
     pn->type=0;
     return pn;
 }
@@ -39,7 +39,7 @@ int add_word(pnode pn,char* word, int num){ // num taille logique char
 // on ne peut pas ajouter direct fils gauche il faut créer et relier
 int add_letter(pnode pn, char letter){ // normalement fonctionne
     if (pn!=NULL){
-        if (pn->value==NULL){
+        if (pn->value=='\0'){
             pn->value=letter;
             return 1;
         }

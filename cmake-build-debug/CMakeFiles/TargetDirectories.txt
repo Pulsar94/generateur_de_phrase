@@ -1,3 +1,0 @@
-C:/Users/taoso/Desktop/projet C/cmake-build-debug/CMakeFiles/Projet.dir
-C:/Users/taoso/Desktop/projet C/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/taoso/Desktop/projet C/cmake-build-debug/CMakeFiles/rebuild_cache.dir

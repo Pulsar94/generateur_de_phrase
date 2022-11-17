@@ -9,7 +9,8 @@
 #ifndef PROJET_READ_H
 #define PROJET_READ_H
 
-#define TEXT "dictionnaire_projet_C.txt"
+#define TEXT "../dictionnaire_projet_C.txt"
+//#define TEXT "dictionnaire_projet_C.txt" // if dictionnaire no detected by .exe
 #define TEXT_LENGTH 287976
 
 //String struct

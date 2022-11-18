@@ -14,4 +14,4 @@ add_executable(generateur_de_phrase
         tree.c
         tree.h
         tree_research.c
-        tree_research.h)
+        tree_research.h flech.c flech.h)

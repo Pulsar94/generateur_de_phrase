@@ -35,6 +35,7 @@ void sentence_model_2(tree tree_name, tree tree_adjective, tree tree_verb){
     display_chaine(*verb2);
     display_chaine(*name2);
     display_chaine(*adjective);
+    printf("\n");
 
     deleteList(name);
     deleteList(name2);

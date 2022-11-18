@@ -7,6 +7,7 @@ pnode create_node(){
     pn->left=NULL; pn->right=NULL;
     pn->value='\0';
     pn->type=0;
+    pn->conj=InitConj();
     return pn;
 }
 
@@ -18,7 +19,7 @@ tree create_tree(){
 }
 
 
-int add_word(pnode pn,char* word, int num){ // num taille logique char
+int add_word(pnode pn,char* word, int num, char* type, char* flech){ // num taille logique char
     char letter;
     pnode next;
     for (int i=0;i<num;i++){ // boucle en fonction de la tail du mot
@@ -30,6 +31,7 @@ int add_word(pnode pn,char* word, int num){ // num taille logique char
         }
         if (i==num-1){
             pn->type=1;
+            AddConj(pn->conj,flech,type);
         }
         pn=next->left;
     }

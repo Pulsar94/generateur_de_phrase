@@ -25,6 +25,9 @@ void menu(){
         case 2:
             sentence_model_2(tree_name,tree_adjective,tree_verb);
             break;
+        case 3:
+            //sentence_model_3(tree_name,tree_adjective,tree_verb);
+            break;
         default:
             break;
     }

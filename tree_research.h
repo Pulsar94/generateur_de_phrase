@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "tree.h"
 #include <time.h>
+#include "flech.h"
 
 struct s_cell
 {

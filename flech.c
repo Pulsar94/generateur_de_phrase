@@ -4,6 +4,7 @@
 
 #include "flech.h"
 #include "stdlib.h"
+#include "stdio.h"
 
 p_conj InitConj(){
     p_conj new =(p_conj) malloc(sizeof(t_conj)*1);
@@ -11,9 +12,26 @@ p_conj InitConj(){
     return new;
 }
 
-void AddConj(p_conj conj, char * to_add){
-    conj->values[conj->length] = to_add;
+void AddConj(p_conj conj,char *word_to_add, char *type_to_add){
+
+    conj->values[conj->length] = word_to_add;
     conj->length++;
+    conj->values[conj->length] = type_to_add;
+    conj->length++;
+    if(conj->length>1){
+        //printf("%s\n",word_to_add);
+        //printf("%d\n",conj->length);
+    }
+    //printf("%s\n",to_add);
+
+}
+
+void printConj(p_conj conj){ //DEBUG
+    printf("oui\n");
+    printf("%d\n",conj->length);
+    for(int i=0;i<conj->length;i++){
+        printf("%s\n",conj->values[i]);
+    }
 }
 
 int CountTwoTypeMatch(char* type1, char* type2){

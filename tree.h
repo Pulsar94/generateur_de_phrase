@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "flech.h"
 
 /* Structures */
 
@@ -15,6 +16,7 @@ struct pn{ // noeud
     struct pn* right;
     char value;
     int type;
+    p_conj conj;
 };
 typedef struct pn s_pn, *pnode;
 
@@ -27,7 +29,7 @@ typedef struct tr s_tr, *tree;
 
 pnode create_node();
 tree create_tree();
-int add_word(pnode,char*,int);
+int add_word(pnode,char*,int,char*,char*);
 int add_letter(pnode, char);
 pnode find_letter_right(pnode,char);
 

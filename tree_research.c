@@ -64,7 +64,7 @@ p_t_std_list research_word(tree tree_word){
                 create_cell(word, temp->value);
             }
         }
-    } while (choice != 1); // if choice == 1 no action is require. Quite the loop and the word is already in the list
+    } while (choice != 1); // if choice == 1 no action is require. Quit the loop and the word is already in the list
     return word;
 }
 
@@ -74,13 +74,13 @@ int road_determination (pnode temp){
     // choice = 1 ==> stop on the node because it's a word
     // choice = 2 ==> go on left
     do{
-        int randed = rand()%((rand()%10)+20); //the best randomisation is when you randomise the randomisation
+        int randed = rand()%((rand()%50)+20); //the best randomisation is when you randomise the randomisation
 
         if(temp->right==NULL && temp->left != NULL){ choice = 2; }
         if(randed==1 && temp->left != NULL){ choice = 2; }
         if(randed>1 && temp->right != NULL){ choice = 0; }
-        if(randed==0 && temp->type){ choice = 1; }
-        if(temp->right==NULL && temp->left == NULL){ choice = 1; }
+        if(randed==0 && temp->type){ choice = 1; printConj(temp->conj); }
+        if(temp->right==NULL && temp->left == NULL){ choice = 1; printConj(temp->conj);}
     }while(choice==-1);
     return choice;
 }

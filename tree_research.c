@@ -80,7 +80,7 @@ int road_determination (pnode temp){
         if(randed==1 && temp->left != NULL){ choice = 2; }
         if(randed>1 && temp->right != NULL){ choice = 0; }
         if(randed==0 && temp->type){ choice = 1; printConj(temp->conj); }
-        if(temp->right==NULL && temp->left == NULL){ choice = 1; printConj(temp->conj);}
+        if(temp->right==NULL && temp->left == NULL){ choice = 1;}
     }while(choice==-1);
     return choice;
 }

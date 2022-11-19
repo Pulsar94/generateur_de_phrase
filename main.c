@@ -3,6 +3,7 @@
 #include "tree.h"
 #include "generator.h"
 #include "tree_research.h"
+#include "flech.h"
 
 //Here we create our three dictionary trees as global
 tree tree_name;
@@ -12,7 +13,7 @@ tree tree_verb;
 
 void menu(){
     int choice=0;
-    printf("\nSelectionner une action: (0 : arreter | 1 : phrase type 1 | 2 : phrase type 2)\n");
+    printf("\nSelectionner une action: (0 : arreter | 1 : phrase type 1 | 2 : phrase type 2 | 3 : phrase forme fléchie)\n");
     scanf("%d",&choice);
 
     switch (choice) {
@@ -24,6 +25,9 @@ void menu(){
             break;
         case 2:
             sentence_model_2(tree_name,tree_adjective,tree_verb);
+            break;
+        case 3:
+            sentence_model_3(tree_name,tree_adjective,tree_verb);
             break;
         default:
             break;

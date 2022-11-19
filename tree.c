@@ -2,6 +2,27 @@
 // Created by Marc on 24/10/2022.
 //
 #include "tree.h"
+
+p_conj InitConj(){
+    p_conj new =(p_conj) malloc(sizeof(t_conj)*1);
+    new->length = 0;
+    return new;
+}
+
+void AddConj(p_conj conj,char *word_to_add, char *type_to_add){
+
+    conj->values[conj->length] = word_to_add;
+    conj->length++;
+    conj->values[conj->length] = type_to_add;
+    conj->length++;
+    if(conj->length>1){
+        //printf("%s\n",word_to_add);
+        //printf("%d\n",conj->length);
+    }
+    //printf("%s\n",to_add);
+
+}
+
 pnode create_node(){ // Création d'un nœud avec allocation de la mémoire nécessaire. Nous renvoyions l'adresse du nœud.
     pnode pn=malloc(sizeof(s_pn));
     pn->left=NULL; pn->right=NULL;
@@ -33,7 +54,7 @@ int add_word(pnode pn,char* word, int num, char* type, char* flech){ // Ajout d'
         if (i==num-1){
             pn->type=1; // annonce la fin du mot et change donc la variable 'type' pour faciliter ultérieurement la recherche dans l'arbre
             AddConj(pn->conj,flech,type);
-            printConj(pn->conj);
+            //printConj(pn->conj);
         }
         pn=next->left;
     }

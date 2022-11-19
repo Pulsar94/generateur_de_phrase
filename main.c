@@ -3,6 +3,7 @@
 #include "tree.h"
 #include "generator.h"
 #include "tree_research.h"
+#include "flech.h"
 
 //Here we create our three dictionary trees as global
 tree tree_name;
@@ -26,7 +27,7 @@ void menu(){
             sentence_model_2(tree_name,tree_adjective,tree_verb);
             break;
         case 3:
-            //sentence_model_3(tree_name,tree_adjective,tree_verb);
+            sentence_model_3(tree_name,tree_adjective,tree_verb);
             break;
         default:
             break;

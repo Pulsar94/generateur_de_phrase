@@ -7,9 +7,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "flech.h"
 
 /* Structures */
+
+typedef struct s_conj{
+    char* values[200];
+    int length;
+}t_conj,*p_conj;
 
 struct pn{ // noeud
     struct pn* left;
@@ -27,6 +31,8 @@ typedef struct tr s_tr, *tree;
 
 /* Fonctions */
 
+p_conj InitConj();
+void AddConj(p_conj, char *, char*);
 pnode create_node();
 tree create_tree();
 int add_word(pnode,char*,int,char*,char*);

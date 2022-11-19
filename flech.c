@@ -5,25 +5,9 @@
 #include "flech.h"
 
 
-p_conj InitConj(){
-    p_conj new =(p_conj) malloc(sizeof(t_conj)*1);
-    new->length = 0;
-    return new;
-}
 
-void AddConj(p_conj conj,char *word_to_add, char *type_to_add){
 
-    conj->values[conj->length] = word_to_add;
-    conj->length++;
-    conj->values[conj->length] = type_to_add;
-    conj->length++;
-    if(conj->length>1){
-        //printf("%s\n",word_to_add);
-        //printf("%d\n",conj->length);
-    }
-    //printf("%s\n",to_add);
 
-}
 
 void printConj(p_conj conj){ //DEBUG
     printf("oui\n");
@@ -96,11 +80,12 @@ pnode research_flech(tree tree_word){
             }
         }
     } while (choice != 1); // if choice == 1 no action is require. Quit the loop and the word is already in the list
-    return temp;
+    return prev_temp;
 }
 
 char* research_word_flech(tree tr, int plu, int fem){
     p_conj word_conj = research_flech(tr)->conj;
+    //printConj(word_conj);
     char cplu[2]="SG";
     char cfem[3]="Mas";
 
@@ -116,11 +101,16 @@ char* research_word_flech(tree tr, int plu, int fem){
     }
 
     for(int i=0;i < word_conj->length;i++){
-        if(fem == 3 && plu == 3 && ContainChar(word_conj->values[i],"Inf")){
-            return word_conj->values[i-1];
-        }
-        if(ContainChar(word_conj->values[i],cplu) && ContainChar(word_conj->values[i],cfem)){
-            return word_conj->values[i-1];
+
+        if(fem == 3 && plu == 3) {
+            if (ContainChar(word_conj->values[i], "Inf")) {
+                printf("infinitif?");
+                return word_conj->values[i - 1];
+            }
+        }else {
+            if (ContainChar(word_conj->values[i], cplu) && ContainChar(word_conj->values[i], cfem)) {
+                return word_conj->values[i - 1];
+            }
         }
 
     }
@@ -131,7 +121,7 @@ char* research_word_flech(tree tr, int plu, int fem){
 void sentence_model_3(tree tree_name, tree tree_adjective, tree tree_verb){
     //Les socles définitifs arrachent un voilier
     //La pierre qui oublie éveilla les poignées belliqueuses
-    char form[2][2][3] = {
+    char form[3][2][3] = {
             {
                 {'L','e'},
                 {'L','a'}
@@ -139,10 +129,13 @@ void sentence_model_3(tree tree_name, tree tree_adjective, tree tree_verb){
             {
                 {'L','e','s'},
                 {'L','e','s'}
+                },
+            {
+                    {'d'}
                 }
     };
 
-    char form2[2][3] = {
+    char form2[3][3] = {
             {'u','n'},
             {'u','n','e'}
     };

@@ -17,7 +17,7 @@ void printConj(p_conj conj){ //DEBUG
     }
 }
 
-int CountTwoTypeMatch(char* type1, char* type2){
+int CountTwoTypeMatch(char* type1, char* type2){ //UNUSED
     int count = 0;
     int chain = 0;
     for(int i=0;type1[i]!='\0';i++){
@@ -37,7 +37,7 @@ int CountTwoTypeMatch(char* type1, char* type2){
     return count;
 }
 
-int GetHighestMatch(char* type1, p_conj packed_type2){
+int GetHighestMatch(char* type1, p_conj packed_type2){// UNUSED
     int high = 0, index;
     for(int i=0;i<packed_type2->length;i++){
         int tempHigh = CountTwoTypeMatch(type1,packed_type2->values[i]);
@@ -49,7 +49,7 @@ int GetHighestMatch(char* type1, p_conj packed_type2){
     return index;
 }
 
-int ContainChar(char* type, char* type2){
+int ContainChar(char* type, char* type2){ //Check if the two type correspond
     for(int i=0;type[i]!='\0';i++){
         for(int j=0;type2[j]!='\0';j++) {
             if (type[i] == type2[j] && type[i + 1] == type2[j + 1]) {
@@ -61,7 +61,7 @@ int ContainChar(char* type, char* type2){
     return 0;
 }
 
-pnode research_flech(tree tree_word){
+pnode research_flech(tree tree_word){ //Similar to resarch_word, only that it returns the p_node associated to it, instead of the word
     int choice;
     // choice = 0 ==> go on right
     // choice = 1 ==> stop on the node because it's a word
@@ -85,18 +85,18 @@ pnode research_flech(tree tree_word){
     return prev_temp;
 }
 
-char* research_word_flech(tree tr, int plu, int fem){
+char* research_word_flech(tree tr, int plu, int fem){ //Research a single fleched word in the tree according to the gender/plural of the world
     p_conj word_conj;
 
     char cplu[3]="SG\0";
     char cfem[4]="Mas\0";
 
-    if(plu){
+    if(plu){ //If plural switch our variable to search for plural word
         cplu[0] = 'P';
         cplu[1] = 'L';
     }
 
-    if(fem){
+    if(fem){ //Idem but for the gender of the word
         cfem[0] = 'F';
         cfem[1] = 'e';
         cfem[2] = 'm';
@@ -105,14 +105,14 @@ char* research_word_flech(tree tr, int plu, int fem){
     do {
         do {
             word_conj = research_flech(tr)->conj;
-        } while (word_conj->length < 1);
+        } while (word_conj->length < 1); //Some words do not contain fleched form, so we prefer to avoid them for a better structure
 
         //printConj(word_conj);
         //printf("cplu: %s| cfem: %s",cplu,cfem);
 
-        for (int i = 1; i < word_conj->length; i = i + 2) {
+        for (int i = 1; i < word_conj->length; i = i + 2) { // We are only looking for the grammatical structure, so we take the odd index number containing them
 
-            if (fem == 3 && plu == 3) {
+            if (fem == 3 && plu == 3) { //Check if we are not looking for infinitive
                 if (ContainChar(word_conj->values[i], "Inf")) {
                     return word_conj->values[i - 1];
                 }
@@ -123,13 +123,12 @@ char* research_word_flech(tree tr, int plu, int fem){
             }
 
         }
-    } while (1);
+    } while (1); //Continue until we find corresponding word
     //return word_conj->values[0];
 }
 
-void sentence_model_3(tree tree_name, tree tree_adjective, tree tree_verb){
-    //Les socles définitifs arrachent un voilier
-    //La pierre qui oublie éveilla les poignées belliqueuses
+void sentence_model_3(tree tree_name, tree tree_adjective, tree tree_verb){ //Create one the asked form
+
     char form[3][2][4] = {
             {
                 {'L','e','\0'},
@@ -152,8 +151,6 @@ void sentence_model_3(tree tree_name, tree tree_adjective, tree tree_verb){
 
     int rand1 = rand()%2; // designate if plural or not
     int rand2 = rand()%2; // designate which word gender
-
-
 
     char* name = research_word_flech(tree_name,rand1,rand2);
     char* adj = research_word_flech(tree_adjective,rand1,rand2);

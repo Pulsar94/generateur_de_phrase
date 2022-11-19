@@ -10,7 +10,7 @@
 
 /* Structures */
 
-typedef struct s_conj{
+typedef struct s_conj{ //conj
     char* values[200];
     int length;
 }t_conj,*p_conj;

@@ -3,23 +3,18 @@
 //
 #include "tree.h"
 
-p_conj InitConj(){
+p_conj InitConj(){ //Initialize our Conj struct for later use
     p_conj new =(p_conj) malloc(sizeof(t_conj)*1);
     new->length = 0;
     return new;
 }
 
-void AddConj(p_conj conj,char *word_to_add, char *type_to_add){
+void AddConj(p_conj conj,char *word_to_add, char *type_to_add){ //Add the word and his grammatical information and increment our length value accordingly
 
     conj->values[conj->length] = word_to_add;
     conj->length++;
     conj->values[conj->length] = type_to_add;
     conj->length++;
-    if(conj->length>1){
-        //printf("%s\n",word_to_add);
-        //printf("%d\n",conj->length);
-    }
-    //printf("%s\n",to_add);
 
 }
 

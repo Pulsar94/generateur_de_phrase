@@ -13,7 +13,7 @@ tree tree_verb;
 
 void menu(){
     int choice=0;
-    printf("\nSelectionner une action: (0 : arreter | 1 : phrase type 1 | 2 : phrase type 2)\n");
+    printf("\nSelectionner une action: (0 : arreter | 1 : phrase type 1 | 2 : phrase type 2 | 3 : phrase forme fléchie)\n");
     scanf("%d",&choice);
 
     switch (choice) {

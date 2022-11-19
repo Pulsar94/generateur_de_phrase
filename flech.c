@@ -51,8 +51,10 @@ int GetHighestMatch(char* type1, p_conj packed_type2){
 
 int ContainChar(char* type, char* type2){
     for(int i=0;type[i]!='\0';i++){
-        if(type[i]==type2[i] && type[i+1]==type2[i+1]){
-            return 1;
+        for(int j=0;type2[j]!='\0';j++) {
+            if (type[i] == type2[j] && type[i + 1] == type2[j + 1]) {
+                return 1;
+            }
         }
     }
 
@@ -84,10 +86,10 @@ pnode research_flech(tree tree_word){
 }
 
 char* research_word_flech(tree tr, int plu, int fem){
-    p_conj word_conj = research_flech(tr)->conj;
-    //printConj(word_conj);
-    char cplu[2]="SG";
-    char cfem[3]="Mas";
+    p_conj word_conj;
+
+    char cplu[3]="SG\0";
+    char cfem[4]="Mas\0";
 
     if(plu){
         cplu[0] = 'P';
@@ -100,44 +102,52 @@ char* research_word_flech(tree tr, int plu, int fem){
         cfem[2] = 'm';
     }
 
-    for(int i=0;i < word_conj->length;i++){
+    do {
+        do {
+            word_conj = research_flech(tr)->conj;
+        } while (word_conj->length < 1);
 
-        if(fem == 3 && plu == 3) {
-            if (ContainChar(word_conj->values[i], "Inf")) {
-                printf("infinitif?");
-                return word_conj->values[i - 1];
+        //printConj(word_conj);
+        //printf("cplu: %s| cfem: %s",cplu,cfem);
+
+        for (int i = 1; i < word_conj->length; i = i + 2) {
+
+            if (fem == 3 && plu == 3) {
+                if (ContainChar(word_conj->values[i], "Inf")) {
+                    return word_conj->values[i - 1];
+                }
+            } else {
+                if (ContainChar(word_conj->values[i], cplu) && ContainChar(word_conj->values[i], cfem)) {
+                    return word_conj->values[i - 1];
+                }
             }
-        }else {
-            if (ContainChar(word_conj->values[i], cplu) && ContainChar(word_conj->values[i], cfem)) {
-                return word_conj->values[i - 1];
-            }
+
         }
-
-    }
-
-    return word_conj->values[0];
+    } while (1);
+    //return word_conj->values[0];
 }
 
 void sentence_model_3(tree tree_name, tree tree_adjective, tree tree_verb){
     //Les socles définitifs arrachent un voilier
     //La pierre qui oublie éveilla les poignées belliqueuses
-    char form[3][2][3] = {
+    char form[3][2][4] = {
             {
-                {'L','e'},
-                {'L','a'}
+                {'L','e','\0'},
+                {'L','a','\0'}
                 },
             {
-                {'L','e','s'},
-                {'L','e','s'}
+                {'L','e','s','\0'},
+                {'L','e','s','\0'}
                 },
             {
-                    {'d'}
+                    {'\0'}
                 }
     };
 
-    char form2[3][3] = {
-            {'u','n'},
-            {'u','n','e'}
+    char form2[3][4] = {
+            {'u','n','\0'},
+            {'u','n','e','\0'},
+            {'\0'}
     };
 
     int rand1 = rand()%2; // designate if plural or not

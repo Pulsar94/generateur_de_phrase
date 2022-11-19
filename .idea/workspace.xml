@@ -15,15 +15,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1c0a2b2-cc7f-4577-92b0-02e5bb67382a" name="Changes" comment="Updated our tree structure to accomodate the new flech struct">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flech.c" beforeDir="false" afterPath="$PROJECT_DIR$/flech.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flech.h" beforeDir="false" afterPath="$PROJECT_DIR$/flech.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree.c" beforeDir="false" afterPath="$PROJECT_DIR$/tree.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree.h" beforeDir="false" afterPath="$PROJECT_DIR$/tree.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree_research.c" beforeDir="false" afterPath="$PROJECT_DIR$/tree_research.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree_research.h" beforeDir="false" afterPath="$PROJECT_DIR$/tree_research.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator.c" beforeDir="false" afterPath="$PROJECT_DIR$/generator.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +76,7 @@
       <workItem from="1668674165798" duration="6000" />
       <workItem from="1668758283119" duration="8502000" />
       <workItem from="1668784920995" duration="5873000" />
-      <workItem from="1668872296295" duration="2140000" />
+      <workItem from="1668872296295" duration="3686000" />
     </task>
     <task id="LOCAL-00001" summary="Added a menu to main()">
       <created>1668759000040</created>

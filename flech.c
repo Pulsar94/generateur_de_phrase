@@ -127,20 +127,20 @@ char* research_word_flech(tree tr, int plu, int fem){ //Research a single fleche
     //return word_conj->values[0];
 }
 
-void sentence_model_3(tree tree_name, tree tree_adjective, tree tree_verb){ //Create one the asked form
+void sentence_fleched_model_1(tree tree_name, tree tree_adjective, tree tree_verb){ //Create one the asked form
 
     char form[3][2][4] = {
             {
-                {'L','e','\0'},
-                {'L','a','\0'}
-                },
+                    {'L','e','\0'},
+                    {'L','a','\0'}
+            },
             {
-                {'L','e','s','\0'},
-                {'L','e','s','\0'}
-                },
+                    {'L','e','s','\0'},
+                    {'L','e','s','\0'}
+            },
             {
                     {'\0'}
-                }
+            }
     };
 
     char form2[3][4] = {
@@ -155,8 +155,7 @@ void sentence_model_3(tree tree_name, tree tree_adjective, tree tree_verb){ //Cr
     char* name = research_word_flech(tree_name,rand1,rand2);
     char* adj = research_word_flech(tree_adjective,rand1,rand2);
     char* verb = research_word_flech(tree_verb,rand1,rand2);
-    char* verb_inf = research_word_flech(tree_verb,3,3);
-
+    char* name2 = research_word_flech(tree_name,rand1,rand2);
 
     //Le/La/Les
     printf("%s ",form[rand1][rand2]);
@@ -168,10 +167,103 @@ void sentence_model_3(tree tree_name, tree tree_adjective, tree tree_verb){ //Cr
     printf("%s ",verb);
     //un/une
     printf("%s ",form2[rand2]);
-    //verbe inf
-    printf("%s ",verb_inf);
-
+    //Nom
+    printf("%s ",name2);
 
     printf("\n");
+}
 
+void sentence_fleched_model_2(tree tree_name, tree tree_adjective, tree tree_verb){ //Create one the asked form
+
+    char form[3][2][4] = {
+            {
+                    {'L','e','\0'},
+                    {'L','a','\0'}
+            },
+            {
+                    {'L','e','s','\0'},
+                    {'L','e','s','\0'}
+            },
+            {
+                    {'\0'}
+            }
+    };
+
+    char form2[3][4] = {
+            {'u','n','\0'},
+            {'u','n','e','\0'},
+            {'\0'}
+    };
+
+    int rand1 = rand()%2; // designate if plural or not
+    int rand2 = rand()%2; // designate which word gender
+
+    char* name = research_word_flech(tree_name,rand1,rand2);
+    char* adj = research_word_flech(tree_adjective,rand1,rand2);
+    char* verb = research_word_flech(tree_verb,rand1,rand2);
+    char* verb2 = research_word_flech(tree_verb,rand1,rand2);
+    char* name2 = research_word_flech(tree_name,rand1,rand2);
+
+
+    //Le/La/Les
+    printf("%s ",form[rand1][rand2]);
+    //Nom
+    printf("%s ",name);
+    //Qui
+    printf("qui ");
+    //verbe
+    printf("%s ",verb);
+    //verbe
+    printf("%s ",verb2);
+    //un/une
+    printf("%s ",form2[rand2]);
+    //Nom
+    printf("%s ",name2);
+    //Adjectif
+    printf("%s ",adj);
+
+    printf("\n");
+}
+
+void sentence_fleched_model_3(tree tree_name, tree tree_adjective, tree tree_verb){ //Create one the asked form
+
+    char form[3][2][8] = {
+            {
+                    {'Q','u', 'e', 'l', '\0'},
+                    {'Q','u','e', 'l', 'l', 'e', '\0'}
+            },
+            {
+                    {'Q','u', 'e', 'l', 's', '\0'},
+                    {'Q','u','e', 'l', 'l', 'e', 's', '\0'}
+            },
+            {
+                    {'\0'}
+            }
+    };
+
+    char form2[3][4] = {
+            {'u','n','\0'},
+            {'u','n','e','\0'},
+            {'\0'}
+    };
+
+    int rand1 = rand()%2; // designate if plural or not
+    int rand2 = rand()%2; // designate which word gender
+
+    char* name = research_word_flech(tree_name,rand1,rand2);
+    char* verb = research_word_flech(tree_verb,rand1,rand2);
+    char* name2 = research_word_flech(tree_name,rand1,rand2);
+
+    //Quel,Quelle, Quels,Quelles
+    printf("%s ",form[rand1][rand2]);
+    //Nom
+    printf("%s ",name);
+    //verbe
+    printf("%s ",verb);
+    //un/une
+    printf("%s ",form2[rand2]);
+    //Nom
+    printf("%s ",name2);
+    printf("?");
+    printf("\n");
 }

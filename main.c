@@ -12,23 +12,86 @@ tree tree_verb;
 //
 
 void menu(){
-    int choice=0;
-    printf("\nSelectionner une action: (0 : arreter | 1 : phrase type 1 | 2 : phrase type 2 | 3 : phrase forme fléchie)\n");
+    int choice=2;
+    printf("\n#########################################################\n");
+    printf("############                                 ############\n");
+    printf("############        PROJET LANGUAGE C        ############\n");
+    printf("############      GENERATEUR DE PHRASES      ############\n");
+    printf("############                                 ############\n");
+    printf("#########################################################\n");
+    printf("############    SELECTIONNER UNE ACTION :    ############\n");
+    printf("############   RENTRER LE CHIFFRE ASSOCIE    ############\n");
+    printf("############                                 ############\n");
+    printf("############       0 | FORME DE BASE |       ############\n");
+    printf("############       1 | FORME DE FLECHIE |    ############\n");
+    printf("############                                 ############\n");
+    printf("############       5 | QUITTER |             ############\n");
+    printf("############                                 ############\n");
+    printf("#########################################################\n");
+    printf("CHOIX : ");
     scanf("%d",&choice);
-
     switch (choice) {
         case 0:
-            return;
+            printf("\n#########################################################\n");
+            printf("########           FORME DE BASE                 ########\n");
+            printf("########     SELECTIONNER UNE ACTION :           ########\n");
+            printf("########    RENTRER LE CHIFFRE ASSOCIE           ########\n");
+            printf("########                                         ########\n");
+            printf("########  0 | NOM ADJECTIF VERBE NOM |           ########\n");
+            printf("########  1 | NOM QUI VERBE VERBE NOM ADJECTIF | ########\n");
+            printf("########                                         ########\n");
+            printf("########  5 | RETOURNER A L'ACCUEIL |            ########\n");
+            printf("########                                         ########\n");
+            printf("#########################################################\n");
+            printf("CHOIX : ");
+            int choice2=2;
+            scanf("%d",&choice2);
+            switch (choice2) {
+                case 0:
+                    sentence_model_1(tree_name,tree_adjective,tree_verb);
+                    break;
+                case 1:
+                    sentence_model_2(tree_name,tree_adjective,tree_verb);
+                    break;
+                case 5:
+                    break;
+                default:
+                    break;
+            }
             break;
         case 1:
-            sentence_model_1(tree_name,tree_adjective,tree_verb);
+            printf("\n##########################################################################\n");
+            printf("#########                    FORME DE FLECHIE                    #########\n");
+            printf("#########                SELECTIONNER UNE ACTION :               #########\n");
+            printf("#########                                                        #########\n");
+            printf("#########   0 | PRONOM NOM ADJECTIF VERBE NOM |                  #########\n");
+            printf("#########   1 | PRONOM NOM QUI VERBE VERBE PRONOM NOM ADJECTIF | #########\n");
+            printf("#########   2 | PRONOM NOM VERBE PRONOM NOM ? |                  #########\n");
+            printf("#########                                                        #########\n");
+            printf("#########   5 | RETOURNER A L'ACCUEIL |                          #########\n");
+            printf("#########                                                        #########\n");
+            printf("##########################################################################\n");
+            printf("CHOIX : ");
+            int choice3=2;
+            scanf("%d",&choice3);
+            switch (choice3) {
+                case 0:
+                    sentence_fleched_model_1(tree_name,tree_adjective,tree_verb);
+                    break;
+                case 1:
+                    sentence_fleched_model_2(tree_name,tree_adjective,tree_verb);
+                    break;
+                case 2:
+                    sentence_fleched_model_3(tree_name,tree_adjective,tree_verb);
+                    break;
+                case 5:
+                    break;
+                default:
+                    break;
+            }
             break;
-        case 2:
-            sentence_model_2(tree_name,tree_adjective,tree_verb);
-            break;
-        case 3:
-            sentence_model_3(tree_name,tree_adjective,tree_verb);
-            break;
+        case 5:
+            return;
         default:
             break;
     }
@@ -55,7 +118,7 @@ int main() {
     menu();
     //
 
-    printf("done\n");
+    printf("\nMERCI DE VOTRE VISITE\n");
     return 0;
 }
 

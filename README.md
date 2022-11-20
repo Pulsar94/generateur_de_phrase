@@ -18,4 +18,5 @@ MENIN Thibaut\
 SOLAN Tao
 
 # Utilisation
-Exécutez le `generateur_de_phrase.exe` ou compilez tous les fichiers puis lancez le `main.c`
+Exécutez le `generateur_de_phrase.exe` ou compilez tous les fichiers puis lancez le `main.c`\
+Si le fichier `generateur_de_phrase.exe` s'exécute mal (bloqué totalement dans le second menu) changer le PATH de la variable (TEXT ligne 14-15) dans le fichier `read.h` qui importe le fichier `dictionnaire_projet_C.txt`.

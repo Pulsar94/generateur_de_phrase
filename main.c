@@ -30,9 +30,6 @@ void menu(){
     printf("#########################################################\n");
     printf("CHOIX : ");
     scanf("%d",&choice);
-    //sentence_model_1(tree_name,tree_adjective,tree_verb); base
-    //sentence_model_2(tree_name,tree_adjective,tree_verb); base
-    //sentence_model_3(tree_name,tree_adjective,tree_verb); flechies
     switch (choice) {
         case 0:
             printf("\n#########################################################\n");
@@ -41,7 +38,7 @@ void menu(){
             printf("########    RENTRER LE CHIFFRE ASSOCIE           ########\n");
             printf("########                                         ########\n");
             printf("########  0 | NOM ADJECTIF VERBE NOM |           ########\n");
-            printf("########  1 | NOM QUI VERBE VERBE NOM ADJECTIF | #########\n");
+            printf("########  1 | NOM QUI VERBE VERBE NOM ADJECTIF | ########\n");
             printf("########                                         ########\n");
             printf("########  5 | RETOURNER A L'ACCUEIL |            ########\n");
             printf("########                                         ########\n");
@@ -58,39 +55,45 @@ void menu(){
                     break;
                 case 5:
                     break;
+                default:
+                    break;
             }
             break;
         case 1:
-            printf("\n#########################################################\n");
-            printf("#########        FORME DE FLECHIE               #########\n");
-            printf("#########    SELECTIONNER UNE ACTION :          #########\n");
-            printf("#########                                       #########\n");
-            printf("#########   0 | PRONOM NOM ADJECTIF VERBE NOM | #########\n");
-            printf("#########   1 |  | #########\n");
-            printf("#########   2 |  | #########\n");
-            printf("#########                                       #########\n");
-            printf("#########   5 | RETOURNER A L'ACCUEIL |         #########\n");
-            printf("#########                                       #########\n");
-            printf("#########################################################\n");
+            printf("\n##########################################################################\n");
+            printf("#########                    FORME DE FLECHIE                    #########\n");
+            printf("#########                SELECTIONNER UNE ACTION :               #########\n");
+            printf("#########                                                        #########\n");
+            printf("#########   0 | PRONOM NOM ADJECTIF VERBE NOM |                  #########\n");
+            printf("#########   1 | PRONOM NOM QUI VERBE VERBE PRONOM NOM ADJECTIF | #########\n");
+            printf("#########   2 | PRONOM NOM VERBE PRONOM NOM ? |                  #########\n");
+            printf("#########                                                        #########\n");
+            printf("#########   5 | RETOURNER A L'ACCUEIL |                          #########\n");
+            printf("#########                                                        #########\n");
+            printf("##########################################################################\n");
             printf("CHOIX : ");
             int choice3=2;
             scanf("%d",&choice3);
             switch (choice3) {
                 case 0:
-                    //sentence_fleched_model_1(tree_name,tree_adjective,tree_verb);
+                    sentence_fleched_model_1(tree_name,tree_adjective,tree_verb);
                     break;
                 case 1:
-                    //sentence_fleched_model_2(tree_name,tree_adjective,tree_verb);
+                    sentence_fleched_model_2(tree_name,tree_adjective,tree_verb);
                     break;
                 case 2:
-                    //sentence_fleched_model_3(tree_name,tree_adjective,tree_verb);
+                    sentence_fleched_model_3(tree_name,tree_adjective,tree_verb);
                     break;
                 case 5:
+                    break;
+                default:
                     break;
             }
             break;
         case 5:
             return;
+        default:
+            break;
     }
     menu();
 }

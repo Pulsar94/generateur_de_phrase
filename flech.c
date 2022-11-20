@@ -1,13 +1,10 @@
 //
-// Created by taoso on 11/18/2022.
+// Projet Générateur de Phrase
+// EFREI S3-L2 | 2022-2023
+// Created by SOLAN Tao | ROUGAGNOU Marc | MENIN Thibaut
 //
 
 #include "flech.h"
-
-
-
-
-
 
 void printConj(p_conj conj){ //DEBUG
     printf("oui\n");

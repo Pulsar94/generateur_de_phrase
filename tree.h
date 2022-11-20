@@ -1,5 +1,7 @@
 //
-// Created by Marc on 24/10/2022.
+// Projet Générateur de Phrase
+// EFREI S3-L2 | 2022-2023
+// Created by SOLAN Tao | ROUGAGNOU Marc | MENIN Thibaut
 //
 
 #ifndef READ_C_TREE_H

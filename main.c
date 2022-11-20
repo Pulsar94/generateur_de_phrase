@@ -1,3 +1,9 @@
+//
+// Projet Générateur de Phrase
+// EFREI S3-L2 | 2022-2023
+// Created by SOLAN Tao | ROUGAGNOU Marc | MENIN Thibaut
+//
+
 #include <stdio.h>
 #include "read.h"
 #include "tree.h"

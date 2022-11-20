@@ -4,7 +4,7 @@
 
 #include "tree_research.h"
 
-void sentence_model_1(tree tree_name, tree tree_adjective, tree tree_verb){
+void sentence_model_1(tree tree_name, tree tree_adjective, tree tree_verb){ //formation de la phrase suivant le modèle 1 avec les formes de base
     p_t_std_list name = research_word(tree_name);
     p_t_std_list name2 = research_word(tree_name);
     p_t_std_list adjective = research_word(tree_adjective);
@@ -22,7 +22,7 @@ void sentence_model_1(tree tree_name, tree tree_adjective, tree tree_verb){
     deleteList(name2);
 }
 
-void sentence_model_2(tree tree_name, tree tree_adjective, tree tree_verb){
+void sentence_model_2(tree tree_name, tree tree_adjective, tree tree_verb){ //formation de la phrase suivant le modèle 2 avec les formes de base
     p_t_std_list name = research_word(tree_name);
     p_t_std_list name2 = research_word(tree_name);
     p_t_std_list adjective = research_word(tree_adjective);
@@ -44,7 +44,7 @@ void sentence_model_2(tree tree_name, tree tree_adjective, tree tree_verb){
     deleteList(verb2);
 }
 
-p_t_std_list research_word(tree tree_word){
+p_t_std_list research_word(tree tree_word){ //fonction principale qui appel toutes les autres fonctions pour rechercher un mot dans l'arbre
     int choice;
     // choice = 0 ==> go on right
     // choice = 1 ==> stop on the node because it's a word
@@ -68,7 +68,7 @@ p_t_std_list research_word(tree tree_word){
     return word;
 }
 
-int road_determination (pnode temp){
+int road_determination (pnode temp){ //permet de décider grâce au hasard si on va dans le fils droit, gauche ou si on s'arrête sur le mot s'il en existe un
     int choice = -1;
     // choice = 0 ==> go on right
     // choice = 1 ==> stop on the node because it's a word
@@ -85,7 +85,7 @@ int road_determination (pnode temp){
     return choice;
 }
 
-void letter_replacement(p_t_std_list word, char letter){
+void letter_replacement(p_t_std_list word, char letter){ //si on va dans le fils droit dans l'arbre, alors la lettre précédemment stockée dans la file de recherche est supprimée
     p_cell temp = word->head;
     while (temp->next != NULL){
         temp = temp->next;
@@ -93,13 +93,13 @@ void letter_replacement(p_t_std_list word, char letter){
     temp->value = letter;
 }
 
-p_t_std_list create_empty_std_list(){
+p_t_std_list create_empty_std_list(){ //création de la liste vide pour recueillir le mot en cours de recherche
     p_t_std_list new = (p_t_std_list) malloc(sizeof (t_std_list));
     new->head = NULL;
     return new;
 }
 
-void create_cell (p_t_std_list mylist, char val){
+void create_cell (p_t_std_list mylist, char val){ //création d'une cellule dans la liste chainée pour ajouter une lettre afin de composer le mot
     p_cell maillon = (p_cell) malloc(sizeof (t_cell));
     p_cell temp = mylist->head;
     maillon->value = val;
@@ -114,7 +114,7 @@ void create_cell (p_t_std_list mylist, char val){
     }
 }
 
-void display_chaine(t_std_list word){
+void display_chaine(t_std_list word){ //affichage de la liste chainée contenant le mot
     p_cell temp = word.head;
     if (temp == NULL){
         printf("NULL\n");
@@ -127,7 +127,7 @@ void display_chaine(t_std_list word){
     }
 }
 
-void deleteList(p_t_std_list p_list){
+void deleteList(p_t_std_list p_list){ //suppression sécurisée de la list chainée contenant le mot
     p_cell prev ,temp;
     temp = p_list->head ;
     prev = temp;

@@ -16,6 +16,9 @@ void printConj(p_conj);
 int ContainChar(char*,char*);
 pnode research_flech(tree);
 char* research_word_flech(tree,int,int);
-void sentence_model_3(tree , tree , tree);
+
+void sentence_fleched_model_1(tree, tree, tree);
+void sentence_fleched_model_2(tree, tree, tree);
+void sentence_fleched_model_3(tree, tree, tree);
 
 #endif //MAIN_C_FLECH_H
